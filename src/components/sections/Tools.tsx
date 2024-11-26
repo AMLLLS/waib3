@@ -71,7 +71,7 @@ const ToolCard = ({ tool, index }: { tool: typeof tools[0], index: number }) => 
           {tool.icon}
         </div>
 
-        <h3 className="text-2xl font-display font-bold mb-4">{tool.title}</h3>
+        <h3 className="text-2xl font-bold mb-4">{tool.title}</h3>
         <p className="text-gray-400 mb-6">{tool.description}</p>
 
         <ul className="space-y-2">
@@ -104,14 +104,14 @@ const Tools = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl mb-6">
             Des Outils{' '}
             <span className="bg-gradient-to-r from-primary via-primary-light to-primary text-transparent bg-clip-text">
               Puissants
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Exploitez nos outils avancés pour créer des designs exceptionnels et optimiser votre workflow.
+            Exploitez nos outils avancés pour créer des designs exceptionnels.
           </p>
         </motion.div>
 

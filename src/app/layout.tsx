@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Space_Grotesk, Poppins } from 'next/font/google'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
@@ -17,6 +17,13 @@ const inter = Inter({
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ['latin'], 
   variable: '--font-space',
+  display: 'swap'
+})
+
+const poppins = Poppins({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap'
 })
 
@@ -78,10 +85,10 @@ export default function RootLayout({
   return (
     <html 
       lang="fr" 
-      className={`${inter.variable} ${spaceGrotesk.variable} ${aeonik.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${aeonik.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-dark text-white antialiased">
+      <body className="bg-dark text-white antialiased font-aeonik">
         <ScrollProvider>
           <GridBackground />
           <Navbar />

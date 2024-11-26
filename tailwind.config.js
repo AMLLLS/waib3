@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         aeonik: ['var(--font-aeonik)'],
         display: ['var(--font-space)'],
+        poppins: ['var(--font-poppins)'],
       },
       colors: {
         'dark': {

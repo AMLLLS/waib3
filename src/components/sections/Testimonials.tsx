@@ -54,28 +54,16 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
 
 const Testimonials = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+    <section>
+      <div>
+        <motion.div>
+          <h2 className="text-4xl md:text-5xl mb-6">
             Ce que disent nos{' '}
             <span className="bg-gradient-to-r from-primary via-primary-light to-primary text-transparent bg-clip-text">
               Étudiants
             </span>
           </h2>
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={index} testimonial={testimonial} index={index} />
-          ))}
-        </div>
       </div>
     </section>
   )

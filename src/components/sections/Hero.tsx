@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { FiUsers, FiClock, FiLayers, FiZap, FiShield } from 'react-icons/fi'
+import { FiUsers, FiPlayCircle, FiMove, FiZap, FiKey } from 'react-icons/fi'
 
 const words = ["commerçants", "entreprises", "artisans", "marques", "services", "SaaS"]
 
@@ -49,23 +49,23 @@ const gradientAnimation = {
 const features = [
   {
     icon: <FiUsers className="w-5 h-5 sm:w-5 sm:h-5" />,
-    text: "Débutants"
+    text: "Débutants à avancés"
   },
   {
-    icon: <FiClock className="w-5 h-5 sm:w-5 sm:h-5" />,
-    text: "2 mois"
+    icon: <FiPlayCircle className="w-5 h-5 sm:w-5 sm:h-5" />,
+    text: "Modules de formation"
   },
   {
-    icon: <FiLayers className="w-5 h-5 sm:w-5 sm:h-5" />,
-    text: "10 Projets"
+    icon: <FiMove className="w-5 h-5 sm:w-5 sm:h-5" />,
+    text: "Templates"
   },
   {
     icon: <FiZap className="w-5 h-5 sm:w-5 sm:h-5" />,
-    text: "À vie"
+    text: "Prompts"
   },
   {
-    icon: <FiShield className="w-5 h-5 sm:w-5 sm:h-5" />,
-    text: "Support"
+    icon: <FiKey className="w-5 h-5 sm:w-5 sm:h-5" />,
+    text: "Lifetime"
   }
 ]
 
@@ -82,9 +82,9 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden pt-32 sm:pt-2 md:pt-2 lg:pt-2">
+    <section className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden pt-28 sm:pt-20 md:pt-20 lg:pt-20">
       <motion.div 
-        className="relative z-10 container mx-auto px-4 text-center sm:mt-0"
+        className="relative z-10 container mx-auto px-4 text-center sm:mt-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -96,8 +96,8 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center justify-center px-4 py-1.5 sm:py-2 mb-6 backdrop-blur-xl bg-white/[0.05] border border-white/[0.05] rounded-full"
           >
-            <span className="text-xs sm:text-sm font-medium text-white">
-              OFFRE DE LANCEMENT : -30%
+            <span className="text-xs sm:text-sm font-poppins text-white/90 tracking-wide">
+              OFFRE DE LANCEMENT WAIB 3.0 : -30%
             </span>
           </motion.div>
 
@@ -109,7 +109,7 @@ const Hero = () => {
           >
             {/* Première phrase avec effet de glow */}
             <motion.div 
-              className="flex items-center justify-center gap-x-4 mb-4"
+              className="flex items-center justify-center gap-x-4 mb-2 sm:mb-4"
               animate={{
                 textShadow: [
                   '0 0 0px rgba(255,255,255,0)',
@@ -123,7 +123,7 @@ const Hero = () => {
                 ease: "easeInOut"
               }}
             >
-              <span className="text-[3.2rem] sm:text-[3.2rem] md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] whitespace-nowrap">
+              <span className="text-[2.8rem] sm:text-[3.2rem] md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] whitespace-nowrap">
                 Créez & vendez
               </span>
             </motion.div>
@@ -210,9 +210,9 @@ const Hero = () => {
               transition: { duration: 0.3 }
             }}
           >
-            {/* Première ligne sur mobile (3 premiers éléments) */}
-            <div className="flex justify-between w-full sm:hidden">
-              {features.slice(0, 3).map((feature, index) => (
+            {/* Première ligne sur mobile (2 premiers éléments) */}
+            <div className="flex justify-center gap-6 w-full sm:hidden">
+              {features.slice(0, 2).map((feature, index) => (
                 <motion.div 
                   key={index}
                   className="flex items-center gap-3 font-aeonik font-normal"
@@ -238,21 +238,21 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Deuxième ligne sur mobile (2 derniers éléments) */}
-            <div className="flex justify-center gap-12 w-full sm:hidden">
-              {features.slice(3).map((feature, index) => (
+            {/* Deuxième ligne sur mobile (3 derniers éléments) */}
+            <div className="flex justify-center gap-8 w-full sm:hidden">
+              {features.slice(2).map((feature, index) => (
                 <motion.div 
-                  key={index + 3}
+                  key={index + 2}
                   className="flex items-center gap-3 font-aeonik font-normal"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (index + 3) * 0.1 }}
+                  transition={{ delay: (index + 2) * 0.1 }}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <motion.span 
                     className="text-white"
                     animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: (index + 3) * 0.2 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: (index + 2) * 0.2 }}
                   >
                     {feature.icon}
                   </motion.span>
@@ -298,6 +298,45 @@ const Hero = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Vidéo Hero */}
+        <motion.div
+          className="relative w-full max-w-4xl mx-auto mt-16 sm:mt-24 px-1 sm:px-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="relative rounded-[20px] overflow-hidden"
+            whileInView={{
+              boxShadow: [
+                '0 -10px 50px -15px rgba(255, 255, 255, 0.1)',
+                '0 -10px 50px -12px rgba(255, 255, 255, 0.15)',
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto"
+            >
+              <source 
+                src="https://cdn.prod.website-files.com/66c74b953957211a234767e2/66e7f5361965c0ae8138e00b_comp_def_2-transcode.mp4" 
+                type="video/mp4" 
+              />
+              Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
           </motion.div>
         </motion.div>
       </motion.div>

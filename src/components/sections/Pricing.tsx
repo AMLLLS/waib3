@@ -71,7 +71,7 @@ const PricingCard = ({ plan, index }: { plan: typeof plans[0], index: number }) 
       )}
 
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-display font-bold mb-2">{plan.name}</h3>
+        <h3 className="text-2xl mb-2">{plan.name}</h3>
         <div className="flex items-center justify-center mb-4">
           <span className="text-4xl font-bold">{plan.price}€</span>
           <span className="text-gray-400 ml-2">/mois</span>
@@ -112,7 +112,7 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl mb-6">
             Choisissez votre{' '}
             <span className="bg-gradient-to-r from-primary to-purple-500 text-transparent bg-clip-text">
               Plan

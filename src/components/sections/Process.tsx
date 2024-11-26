@@ -76,14 +76,14 @@ const ProcessStep = ({ step, index }: ProcessStepProps) => {
       <div className="flex gap-8">
         {/* Number */}
         <div className="flex-shrink-0 w-16 h-16 bg-dark-light rounded-full border border-primary/20 flex items-center justify-center">
-          <span className="text-2xl font-display font-bold bg-gradient-to-br from-primary to-primary-light text-transparent bg-clip-text">
+          <span className="text-2xl bg-gradient-to-br from-primary to-primary-light text-transparent bg-clip-text">
             {step.number}
           </span>
         </div>
 
         {/* Content */}
         <div className="flex-grow">
-          <h3 className="text-2xl font-display font-bold mb-4">{step.title}</h3>
+          <h3 className="text-2xl mb-4">{step.title}</h3>
           <p className="text-gray-400 mb-6">{step.description}</p>
           
           <div className="grid grid-cols-2 gap-4">
@@ -114,7 +114,7 @@ const Process = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl mb-6">
             Votre Parcours vers{' '}
             <span className="bg-gradient-to-r from-primary to-[#E5F580] text-transparent bg-clip-text">
               l'Excellence

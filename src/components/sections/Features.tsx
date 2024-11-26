@@ -53,7 +53,7 @@ const FeatureCard = ({ feature, index }: { feature: typeof features[0], index: n
       <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
         {feature.icon}
       </div>
-      <h3 className="text-xl font-display font-bold mb-2">{feature.title}</h3>
+      <h3 className="text-xl mb-2">{feature.title}</h3>
       <p className="text-gray-400">{feature.description}</p>
     </motion.div>
   )
@@ -70,7 +70,7 @@ const Features = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6">
             Une Formation{' '}
             <span className="bg-gradient-to-r from-primary to-[#E5F580] text-transparent bg-clip-text">
               Complète

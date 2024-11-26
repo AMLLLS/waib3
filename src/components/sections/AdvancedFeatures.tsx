@@ -38,7 +38,7 @@ const FeatureBlock = ({ feature, index }: { feature: typeof features[0], index: 
       transition={{ duration: 0.8, delay: index * 0.2 }}
       className="relative p-8 rounded-2xl bg-gradient-to-br from-dark-light to-transparent border border-[#262626]"
     >
-      <h3 className="text-3xl font-display font-bold mb-4">{feature.title}</h3>
+      <h3 className="text-3xl mb-4">{feature.title}</h3>
       <p className="text-gray-400 mb-8">{feature.description}</p>
       
       <div className="grid grid-cols-3 gap-4">
@@ -64,7 +64,7 @@ const AdvancedFeatures = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl mb-6">
             Une Suite{' '}
             <span className="bg-gradient-to-r from-primary via-primary-light to-primary text-transparent bg-clip-text">
               Complète
@@ -92,7 +92,7 @@ const AdvancedFeatures = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 blur-3xl" />
           <div className="relative bg-dark-light rounded-2xl p-8 border border-gray-800">
-            <h3 className="text-3xl font-display font-bold mb-8 text-center">
+            <h3 className="text-3xl mb-8 text-center">
               Interface Intuitive et Moderne
             </h3>
             <div className="aspect-video relative rounded-lg overflow-hidden">

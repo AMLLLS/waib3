@@ -1,4 +1,4 @@
-// File: C:\Users\CMRN\Documents\AIWEB\Waib\src\app\layout.tsx
+// File: /Users/amllls/Desktop/AI WEB/WAIB 3.0/waib3/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

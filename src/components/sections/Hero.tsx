@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FiUsers, FiPlayCircle, FiMove, FiZap, FiKey } from 'react-icons/fi'
 
-const words = ["commerçants", "entreprises", "artisans", "marques", "services", "SaaS"]
+const words = ["commerçants", "entreprises", "artisans", "marques", "services", "micro-entreprises", "organismes", "agences", "entrepreneurs"]
 
 // Hook personnalisé pour gérer la taille de l'écran
 const useWindowSize = () => {
@@ -82,7 +82,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden pt-28 sm:pt-20 md:pt-20 lg:pt-20">
+    <section className="relative min-h-screen flex items-start sm:items-center justify-center overflow-hidden pt-28 sm:pt-20 md:pt-20 lg:pt-12 xl:pt-10">
       <motion.div 
         className="relative z-10 container mx-auto px-4 text-center sm:mt-20"
         initial={{ opacity: 0, y: 20 }}
@@ -94,10 +94,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center justify-center px-4 py-1.5 sm:py-2 mb-6 backdrop-blur-xl bg-white/[0.05] border border-white/[0.05] rounded-full"
+            className="relative inline-flex items-center justify-center px-4 py-1.5 sm:py-2 lg:px-3 lg:py-1 mb-6 backdrop-blur-xl bg-white/[0.05] rounded-full"
           >
-            <span className="text-xs sm:text-sm font-poppins text-white/90 tracking-wide">
-              OFFRE DE LANCEMENT WAIB 3.0 : -30%
+            <div className="absolute inset-0 rounded-full border border-primary animate-[pulse-glow_4s_ease-in-out_infinite] shadow-[0_0_12px_rgba(209,243,74,0.4)]" />
+            <span className="text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.7rem] xl:text-[0.75rem] font-poppins text-white/90 tracking-wide relative z-10">
+              OFFRE DE LANCEMENT WAIB 3.0 : <span className="font-bold">-30%</span>
             </span>
           </motion.div>
 
@@ -123,7 +124,7 @@ const Hero = () => {
                 ease: "easeInOut"
               }}
             >
-              <span className="text-[2.8rem] sm:text-[3.2rem] md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] whitespace-nowrap">
+              <span className="text-[3.2rem] sm:text-[3.2rem] md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] whitespace-nowrap">
                 Créez & vendez
               </span>
             </motion.div>
@@ -142,58 +143,62 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               >
-                des sites pour des
+                des sites/apps pour des
               </motion.span>
               
               {/* Conteneur du mot qui change */}
-              <div className="relative h-[2.8rem] sm:h-[3.2rem] md:h-[3.75rem] lg:text-[5.5rem] xl:h-[6.5rem] w-full flex justify-center mb-2 sm:mb-6 lg:mb-4">
+              <div className="relative h-[4rem] sm:h-[5rem] md:h-[6rem] lg:h-[7rem] xl:h-[8rem] w-full flex justify-center mb-0 sm:mb-2 lg:mb-1">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={words[wordIndex]}
-                    className="absolute flex items-center justify-center backdrop-blur-xl bg-dark/20 border-[3px] border-dashed border-gray-800 rounded-2xl h-full top-[4px] lg:top-[8px] xl:top-[4px]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
+                    className="absolute flex items-center justify-center h-full"
+                    initial={{ 
+                      opacity: 0,
+                      y: 40,
+                      scale: 0.9,
+                      filter: "blur(8px)"
+                    }}
+                    animate={{ 
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      filter: "blur(0px)"
+                    }}
+                    exit={{ 
+                      opacity: 0,
+                      y: -40,
+                      scale: 0.9,
+                      filter: "blur(8px)"
+                    }}
                     transition={{
-                      duration: 0.6,
-                      ease: [0.23, 1, 0.32, 1]
+                      duration: 0.5,
+                      ease: [0.4, 0, 0.2, 1]
                     }}
                   >
-                    <span className="text-[2.8rem] sm:text-[3.2rem] md:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] whitespace-nowrap block text-primary px-6 py-6 sm:py-5 md:py-6 lg:py-8 xl:py-6 -translate-y-[4px] lg:-translate-y-[12px] xl:-translate-y-[16px] leading-none">
+                    <span className="text-[clamp(3rem,10vw,4rem)] sm:text-[5rem] md:text-[6rem] lg:text-[6.5rem] xl:text-[7rem] whitespace-nowrap block text-primary px-6 py-2 sm:py-2 md:py-2 lg:py-3 xl:py-2 leading-none font-serathine font-normal [font-weight:400] [text-shadow:0_0_20px_rgba(209,243,74,0.3)]">
                       {words[wordIndex]}
                     </span>
                   </motion.div>
                 </AnimatePresence>
               </div>
-
-              {/* "sans compétences" avec effet de fade */}
-              <motion.span 
-                className="text-[1.8rem] sm:text-[2.4rem] md:text-4xl lg:text-[3.2rem] xl:text-[4rem] whitespace-nowrap"
-                animate={{
-                  opacity: [0.8, 1, 0.8],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2 // Décalé par rapport au texte du haut
-                }}
-              >
-                sans compétences
-              </motion.span>
             </div>
           </motion.h1>
         </div>
         
-        <motion.p 
-          className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-4 mt-12 font-aeonik font-normal leading-relaxed"
+        <motion.div 
+          className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto mb-4 mt-12 font-aeonik leading-relaxed flex flex-col items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          WAIB 3.0 vous offre un plan unique pour devenir un expert indépendant en création de sites web
-          et d'applications complexes, pour débutants ou experts, à partir de 0€.
-        </motion.p>
+          <p className="text-[clamp(1rem,5.8vw,1.5rem)] sm:text-[2.2rem] md:text-[2.6rem] lg:text-[2.4rem] xl:text-[2.5rem] font-bold sm:mb-4">
+            Sans compétences et grâce à l'IA,
+          </p>
+          <p className="text-[clamp(0.75rem,3.8vw,1.1rem)] sm:text-base md:text-lg lg:text-[0.85rem] xl:text-[0.9rem] text-gray-300 max-w-2xl mx-auto">
+            devenez un expert indépendant en création de sites web
+            et d'applications complexes, avec 0 budget, et accessible à tous de débutants à experts.
+          </p>
+        </motion.div>
 
         {/* Widget de features amélioré */}
         <motion.div
@@ -203,6 +208,36 @@ const Hero = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           whileHover={{ scale: 1.02 }}
         >
+          {/* CTA Mobile */}
+          <div className="sm:hidden mb-8">
+            <p className="text-[0.9rem] font-bold text-white/80 mb-3">+1500 offres à pourvoir en ligne</p>
+            <motion.button
+              className="relative group bg-gradient-to-br from-primary via-primary/90 to-primary/80 px-8 py-3 rounded-2xl overflow-hidden shadow-lg shadow-primary/20"
+              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.02 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-45 -translate-x-full group-hover:translate-x-full duration-1000 transition-transform" />
+              <div className="relative flex flex-col items-center -my-1">
+                <div className="flex items-center gap-3">
+                  <span className="text-dark font-bold text-[1.2rem]">Commencer maintenant</span>
+                  <motion.svg 
+                    className="w-5 h-5 fill-dark"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 3 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                  </motion.svg>
+                </div>
+                <span className="text-[0.65rem] text-dark/80 -mt-[0.325rem]">80€ à vie au lieu de 149€</span>
+              </div>
+            </motion.button>
+          </div>
+
           <motion.div 
             className="flex flex-col sm:flex-row items-center gap-y-4 sm:gap-0 px-6 sm:px-0 sm:backdrop-blur-sm sm:bg-white/[0.02] sm:rounded-2xl sm:border sm:border-white/[0.05] sm:p-2"
             whileHover={{

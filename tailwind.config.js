@@ -11,6 +11,7 @@ module.exports = {
         aeonik: ['var(--font-aeonik)'],
         display: ['var(--font-space)'],
         poppins: ['var(--font-poppins)'],
+        serathine: ['var(--font-serathine)'],
       },
       colors: {
         'dark': {

@@ -6,6 +6,13 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-aeonik font-bold;
   }
+  
+  .font-serathine {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+  }
 }
 
 :root {
@@ -41,6 +48,188 @@ html.has-scroll-smooth {
 ::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 3px;
+}
+
+/* Badge Animation */
+@keyframes badge {
+  0% {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+  25% {
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+  26%, 49% {
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    border-radius: 0 0 100px 100px;
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+  51%, 74% {
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+  75% {
+    top: 100%;
+    left: 0;
+    transform: translateX(0);
+    border-radius: 0;
+  }
+  76%, 99% {
+    top: 100%;
+    left: 0;
+    transform: translateX(0);
+    border-radius: 100px 100px 0 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    border-radius: 0;
+  }
+}
+
+@keyframes border-rotate {
+  0%, 3% {
+    clip-path: inset(0 80% 98% 0);
+  }
+  20%, 26% {
+    clip-path: inset(0 0 80% 98%);
+  }
+  45%, 51% {
+    clip-path: inset(98% 0 0 80%);
+  }
+  70%, 76% {
+    clip-path: inset(80% 98% 0 0);
+  }
+  97%, 100% {
+    clip-path: inset(0 80% 98% 0);
+  }
+}
+
+@keyframes badge-shine {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(400%) rotate(360deg);
+  }
+}
+
+@keyframes border-move {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(500%);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -128;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0;
+    border-color: transparent;
+  }
+  50% {
+    opacity: 1;
+    border-color: #D1F34A;
+  }
+}
+
+@keyframes shine {
+  0% {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+  25% {
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+  }
+  25.1% {
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%) rotate(90deg);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%) rotate(90deg);
+  }
+  50.1% {
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%) rotate(180deg);
+  }
+  75% {
+    top: 100%;
+    left: 0;
+    transform: translateX(0) rotate(180deg);
+  }
+  75.1% {
+    top: 100%;
+    left: 0;
+    transform: translateX(0) rotate(270deg);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: translateX(-100%) rotate(360deg);
+  }
+}
+
+@keyframes organic-glow {
+  0%, 100% {
+    opacity: 0;
+    border-color: transparent;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.3;
+    border-color: rgba(209,243,74,0.4);
+    transform: scale(1.01);
+  }
+  50% {
+    opacity: 1;
+    border-color: rgba(209,243,74,0.8);
+    transform: scale(1);
+  }
+  75% {
+    opacity: 0.5;
+    border-color: rgba(209,243,74,0.6);
+    transform: scale(1.01);
+  }
 }
 
 /* Animations Classes */

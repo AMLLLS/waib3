@@ -27,6 +27,20 @@ const poppins = Poppins({
   display: 'swap'
 })
 
+const serathine = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Sanikata.otf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-serathine',
+  display: 'block',
+  preload: true,
+  fallback: ['system-ui', 'arial']
+})
+
 // Configuration corrigée des polices Aeonik
 const aeonik = localFont({
   src: [
@@ -85,7 +99,7 @@ export default function RootLayout({
   return (
     <html 
       lang="fr" 
-      className={`${inter.variable} ${spaceGrotesk.variable} ${aeonik.variable} ${poppins.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${aeonik.variable} ${poppins.variable} ${serathine.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-dark text-white antialiased font-aeonik">

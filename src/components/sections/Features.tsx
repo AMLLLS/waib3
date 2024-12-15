@@ -71,9 +71,9 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl mb-6">
-            Une Formation{' '}
+            Un hub d'apprentissage{' '}
             <span className="bg-gradient-to-r from-primary to-[#E5F580] text-transparent bg-clip-text">
-              Complète
+              unique
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">

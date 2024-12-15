@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
 import { ScrollProvider } from '@/components/providers/ScrollProvider'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import GridBackground from '@/components/effects/GridBackground'
+import LayoutProvider from '@/components/providers/LayoutProvider'
+import { SidebarProvider } from '@/components/providers/SidebarProvider'
 import localFont from 'next/font/local'
 
 const inter = Inter({ 
@@ -105,11 +105,11 @@ export default function RootLayout({
       <body className="bg-dark text-white antialiased font-aeonik">
         <ScrollProvider>
           <GridBackground />
-          <Navbar />
-          <main className="relative">
-            {children}
-          </main>
-          <Footer />
+          <LayoutProvider>
+            <SidebarProvider>
+              {children}
+            </SidebarProvider>
+          </LayoutProvider>
         </ScrollProvider>
       </body>
     </html>

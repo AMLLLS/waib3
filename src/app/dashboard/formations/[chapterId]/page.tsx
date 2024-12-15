@@ -1,7 +1,7 @@
-export default function ChapterLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
-} 
+import { ReactNode } from 'react';
+
+const ChapterLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+  return <>{children}</>;
+};
+
+export default ChapterLayout;

@@ -1,12 +1,13 @@
 import { Inter, Space_Grotesk, Poppins } from 'next/font/google'
-import type { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import { ReactNode } from 'react'
 import './globals.css'
-import { ScrollProvider } from '@/components/providers/ScrollProvider'
-import GridBackground from '@/components/effects/GridBackground'
-import LayoutProvider from '@/components/providers/LayoutProvider'
-import { SidebarProvider } from '@/components/providers/SidebarProvider'
+import { Providers } from '@/components/providers/Providers'
 import localFont from 'next/font/local'
+import { LoaderProvider } from '@/components/providers/LoaderProvider'
+import { Toaster } from 'react-hot-toast'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -41,7 +42,6 @@ const serathine = localFont({
   fallback: ['system-ui', 'arial']
 })
 
-// Configuration corrigée des polices Aeonik
 const aeonik = localFont({
   src: [
     {
@@ -64,31 +64,32 @@ const aeonik = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'DesignMaster | Plateforme d\'apprentissage immersive pour le Web Design',
-  description: 'Découvrez l\'art du web design à travers une expérience d\'apprentissage unique et immersive.',
+  title: 'WAIB 3.0',
+  description: 'Plateforme de formation WAIB',
   keywords: ['web design', 'formation', 'design', 'apprentissage', 'UI/UX', 'digital'],
-  authors: [{ name: 'DesignMaster' }],
-  creator: 'DesignMaster',
+  authors: [{ name: 'WAIB' }],
+  creator: 'WAIB',
+  metadataBase: new URL('http://localhost:3000'),
   openGraph: {
-    type: 'website',
+    title: 'WAIB 3.0',
+    description: 'Plateforme de formation WAIB',
+    url: 'http://localhost:3000',
+    siteName: 'WAIB 3.0',
     locale: 'fr_FR',
-    url: 'https://designmaster.com',
-    title: 'DesignMaster | Plateforme d\'apprentissage immersive pour le Web Design',
-    description: 'Découvrez l\'art du web design à travers une expérience d\'apprentissage unique et immersive.',
-    siteName: 'DesignMaster',
+    type: 'website',
   },
   twitter: {
+    title: 'WAIB 3.0',
+    description: 'Plateforme de formation WAIB',
     card: 'summary_large_image',
-    title: 'DesignMaster | Plateforme d\'apprentissage immersive pour le Web Design',
-    description: 'Découvrez l\'art du web design à travers une expérience d\'apprentissage unique et immersive.',
-    creator: '@designmaster',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  themeColor: '#000000'
+}
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -103,14 +104,23 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-dark text-white antialiased font-aeonik">
-        <ScrollProvider>
-          <GridBackground />
-          <LayoutProvider>
-            <SidebarProvider>
-              {children}
-            </SidebarProvider>
-          </LayoutProvider>
-        </ScrollProvider>
+        <Providers>
+          <LoaderProvider>
+            {children}
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                style: {
+                  background: '#1F2937',
+                  color: '#fff',
+                  borderRadius: '0.75rem',
+                },
+              }}
+            />
+          </LoaderProvider>
+          <Analytics />
+          <SpeedInsights />
+        </Providers>
       </body>
     </html>
   )

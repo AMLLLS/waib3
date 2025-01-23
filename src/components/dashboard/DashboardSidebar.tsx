@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   RiHome5Line, RiVideoLine, RiBookOpenLine, 
   RiLightbulbLine, RiToolsLine, RiMenuFoldLine, 
-  RiMenuUnfoldLine, RiRocketLine, RiBrainLine 
+  RiMenuUnfoldLine, RiLayoutLine, RiBrainLine 
 } from 'react-icons/ri';
 import { useSidebar } from '../providers/SidebarProvider';
 
@@ -14,10 +14,10 @@ const menuItems = [
   { name: 'Vue d\'ensemble', icon: RiHome5Line, path: '/dashboard' },
   { name: 'Formations', icon: RiVideoLine, path: '/dashboard/formations' },
   { name: 'Ressources', icon: RiBookOpenLine, path: '/dashboard/ressources' },
+  { name: 'Templates', icon: RiLayoutLine, path: '/dashboard/templates' },
   { name: 'Prompts IA', icon: RiBrainLine, path: '/dashboard/prompts' },
   { name: 'Tutoriels', icon: RiLightbulbLine, path: '/dashboard/tutoriels' },
   { name: 'Outils', icon: RiToolsLine, path: '/dashboard/outils' },
-  { name: 'Progression', icon: RiRocketLine, path: '/dashboard/progression' },
 ];
 
 export default function DashboardSidebar() {

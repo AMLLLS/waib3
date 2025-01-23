@@ -35,7 +35,7 @@ export default function DashboardPage() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="space-y-6 sm:space-y-8 p-2 sm:p-4 md:p-6">
+    <div className="space-y-6 sm:space-y-8 overflow-x-hidden">
       {/* Header Section with Welcome Message */}
       <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-dark-lighter p-4 sm:p-8 md:p-12">
         <motion.div 

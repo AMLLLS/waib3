@@ -31,6 +31,14 @@ body {
   rgb(var(--background-start-rgb));
 }
 
+/* Modal scroll lock */
+.modal-open {
+  overflow: hidden !important;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
 /* Smooth Scroll */
 html.has-scroll-smooth {
   overflow: hidden;
